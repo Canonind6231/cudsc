@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CUD Project Approval Workflow - Pink Theme Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 340 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 20% 15%;
+
+    /* Pink/Rose Primary */
+    --primary: 340 75% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft pink secondary */
+    --secondary: 340 30% 95%;
+    --secondary-foreground: 340 40% 30%;
+
+    /* Muted pinks */
+    --muted: 340 15% 94%;
+    --muted-foreground: 340 10% 45%;
+
+    /* Light pink accent */
+    --accent: 340 50% 92%;
+    --accent-foreground: 340 60% 35%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 20% 90%;
+    --input: 340 20% 90%;
+    --ring: 340 75% 55%;
+
+    --radius: 0.75rem;
+
+    /* Status Colors */
+    --status-pending: 45 93% 47%;
+    --status-pending-bg: 45 100% 95%;
+    --status-review: 210 100% 50%;
+    --status-review-bg: 210 100% 95%;
+    --status-approved: 142 76% 36%;
+    --status-approved-bg: 142 76% 95%;
+    --status-rejected: 0 84% 60%;
+    --status-rejected-bg: 0 84% 95%;
+
+    /* Sidebar */
+    --sidebar-background: 340 30% 97%;
+    --sidebar-foreground: 340 20% 25%;
+    --sidebar-primary: 340 75% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 40% 93%;
+    --sidebar-accent-foreground: 340 60% 35%;
+    --sidebar-border: 340 20% 90%;
+    --sidebar-ring: 340 75% 55%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(340, 75%, 55%) 0%, hsl(320, 70%, 60%) 100%);
+    --gradient-header: linear-gradient(135deg, hsl(340, 75%, 55%) 0%, hsl(350, 80%, 60%) 50%, hsl(320, 70%, 55%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(340, 30%, 98%) 100%);
+  }
+
+  .dark {
+    --background: 340 15% 8%;
+    --foreground: 340 10% 95%;
+
+    --card: 340 15% 12%;
+    --card-foreground: 340 10% 95%;
+
+    --popover: 340 15% 12%;
+    --popover-foreground: 340 10% 95%;
+
+    --primary: 340 70% 60%;
+    --primary-foreground: 340 20% 10%;
+
+    --secondary: 340 20% 18%;
+    --secondary-foreground: 340 10% 90%;
+
+    --muted: 340 15% 20%;
+    --muted-foreground: 340 10% 60%;
+
+    --accent: 340 30% 22%;
+    --accent-foreground: 340 10% 90%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 15% 20%;
+    --input: 340 15% 20%;
+    --ring: 340 70% 60%;
+
+    --sidebar-background: 340 15% 10%;
+    --sidebar-foreground: 340 10% 90%;
+    --sidebar-primary: 340 70% 60%;
+    --sidebar-primary-foreground: 340 20% 10%;
+    --sidebar-accent: 340 20% 18%;
+    --sidebar-accent-foreground: 340 10% 90%;
+    --sidebar-border: 340 15% 18%;
+    --sidebar-ring: 340 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-pending {
+    background-color: hsl(var(--status-pending-bg));
+    color: hsl(var(--status-pending));
+  }
+  
+  .status-review {
+    background-color: hsl(var(--status-review-bg));
+    color: hsl(var(--status-review));
+  }
+  
+  .status-approved {
+    background-color: hsl(var(--status-approved-bg));
+    color: hsl(var(--status-approved));
+  }
+  
+  .status-rejected {
+    background-color: hsl(var(--status-rejected-bg));
+    color: hsl(var(--status-rejected));
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-header {
+    background: var(--gradient-header);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
